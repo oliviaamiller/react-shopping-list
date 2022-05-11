@@ -1,11 +1,14 @@
 import Header from './components/Layout/Header';
 import ShoppingList from './views/Shopping/List';
+import { ShoppingProvider } from './context/ShoppingProvider';
 
 export default function App() {
   return (
     <>
-      <Header />
-      <ShoppingList />
+      <ShoppingProvider>
+        <Header />
+        <ShoppingList />
+      </ShoppingProvider>
     </>
   );
 }
