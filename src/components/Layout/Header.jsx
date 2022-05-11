@@ -1,7 +1,7 @@
-import React from 'react'
+import { useItems } from '../../context/ShoppingProvider';
 
 export default function Header() {
-  return (
-    <div>Header</div>
-  )
+  const { items } = useItems();
+
+  return <div>Items Needed to be Bought: {items.length}</div>;
 }
