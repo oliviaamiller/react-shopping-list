@@ -4,17 +4,17 @@ const initialListItem = [
   { id: Date.now(), text: 'Add items to your shopping list', bought: false },
 ];
 
-const shoppingReducer = (state, action) => {
+const shoppingReducer = (items, action) => {
   switch (action.type) {
     case 'add':
       //returns an array of items with the newest at the top of the list
       return [
         { id: Date.now(), text: action.payload.text, bought: false },
-        ...state,
+        ...items,
       ];
     case 'edit':
       //find the item by id, update the text, and return the updated item object to the array
-      return state.map((item) => {
+      return items.map((item) => {
         if (item.id === action.payload.item.id) {
           const { bought, text } = action.payload.item;
 
@@ -27,7 +27,10 @@ const shoppingReducer = (state, action) => {
         return item;
       });
     case 'delete':
-      return state.filter((item) => item.id !== action.payload.id);
+      return items.filter((item) => item.id !== action.payload.id);
+
+    case 'clear':
+      return [];
     default:
       throw new Error('There is an error here!');
   }
@@ -50,9 +53,13 @@ export const ShoppingProvider = ({ children }) => {
     dispatch({ type: 'delete', payload: { id } });
   };
 
+  const handleClearList = () => {
+    dispatch({ type: 'clear' });
+  };
+
   return (
     <ShoppingContext.Provider
-      value={{ items, handleAddItem, handleEditItem, handleDeleteItem }}
+      value={{ items, handleAddItem, handleEditItem, handleDeleteItem, handleClearList }}
     >
       {children}
     </ShoppingContext.Provider>

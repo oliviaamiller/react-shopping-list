@@ -29,8 +29,8 @@ export default function Item({ item, onEdit, onDelete }) {
     listContent = (
       <>
         <p
-          style={{ textDecoration: item.bought ? 'line-through' : null }}
-          onClick={() => item.bought === true}
+        //   style={{ textDecoration: item.bought ? 'line-through' : null }}
+        //   onClick={() => item.bought === true}
         >
           {item.text}
         </p>
