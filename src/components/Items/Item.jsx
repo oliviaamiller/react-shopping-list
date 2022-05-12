@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './Item.css';
 
 export default function Item({ item, onEdit, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -42,7 +43,7 @@ export default function Item({ item, onEdit, onDelete }) {
   }
 
   return (
-    <div>
+    <div className={styles.item}>
       {listContent}
       <button type="button" onClick={() => onDelete(item.id)}>
         Delete

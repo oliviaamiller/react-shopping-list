@@ -1,5 +1,30 @@
 .header{
-    background-color: wheat;
-    display: flex;
-    flex-direction: row;
+    background-color: rgb(234, 70, 11);
+    display: grid;
+    grid: 1fr / .8fr .15fr .15fr;
+    align-items: center;
+    height: 5rem;
+}
+
+.header h2 {
+    color: white;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    padding-left: 2rem;
+    letter-spacing: .1rem;
+    font-size: 3.8rem;
+}
+
+.header p {
+    font-family: sans-serif;
+    text-transform: uppercase;    
+}
+
+.header button {
+   background-color: rgb(234, 70, 11);
+   border: black 1.5px solid;
+   font-family: sans-serif;
+   text-transform: uppercase;
+   width: 7rem;
+   padding: .5rem;
 }

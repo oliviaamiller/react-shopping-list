@@ -1,0 +1,9 @@
+.item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.item button {
+    margin: .5rem;
+}
