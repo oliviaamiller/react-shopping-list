@@ -23,7 +23,9 @@ export default function Item({ item, onEdit, onDelete }) {
             });
           }}
         />
-        <button type="submit">Save</button>
+        <button className={styles.saveButton} type="submit">
+          Save
+        </button>
       </form>
     );
   } else {
@@ -35,8 +37,12 @@ export default function Item({ item, onEdit, onDelete }) {
         >
           {item.text}
         </p>
-        <button type="button" onClick={() => setIsEditing(true)}>
-          Edit
+        <button
+          className={styles.editButton}
+          type="button"
+          onClick={() => setIsEditing(true)}
+        >
+          ✏
         </button>
       </>
     );
@@ -45,8 +51,12 @@ export default function Item({ item, onEdit, onDelete }) {
   return (
     <div className={styles.item}>
       {listContent}
-      <button type="button" onClick={() => onDelete(item.id)}>
-        Delete
+      <button
+        className={styles.deleteButton}
+        type="button"
+        onClick={() => onDelete(item.id)}
+      >
+        X
       </button>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useItems } from '../../context/ShoppingProvider';
 import Item from '../../components/Items/Item';
+import styles from './List.css';
 
 export default function ShoppingList() {
   const [newItem, setNewItem] = useState('');
@@ -13,8 +14,7 @@ export default function ShoppingList() {
   };
 
   return (
-    <>
-      <h2>The List:</h2>
+    <div className={styles.list}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -23,7 +23,7 @@ export default function ShoppingList() {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-        <button type="submit">Add Item</button>
+        <button type="submit" className={styles.addButton}>Add Item</button>
       </form>
       <div>
         {items.map((item) => {
@@ -37,6 +37,6 @@ export default function ShoppingList() {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }

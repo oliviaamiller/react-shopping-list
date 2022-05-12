@@ -1,0 +1,30 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;  
+}
+
+.list input {
+  border: 1.5px solid black;
+  margin: 0.5rem;
+  padding: 0.45rem;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+
+.list ::placeholder {
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+.addButton {
+  background-color: white;
+  border: black 1.5px solid;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  width: 5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 12px;
+}
