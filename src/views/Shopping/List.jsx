@@ -29,6 +29,7 @@ export default function ShoppingList() {
         {items.map((item) => {
           return (
             <Item
+              key={item.id}
               item={item}
               onEdit={handleEditItem}
               onDelete={handleDeleteItem}
