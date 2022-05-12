@@ -25,6 +25,17 @@ export default function ShoppingList() {
         />
         <button type="submit">Add Item</button>
       </form>
+      <div>
+        {items.map((item) => {
+          return (
+            <Item
+              item={item}
+              onEdit={handleEditItem}
+              onDelete={handleDeleteItem}
+            />
+          );
+        })}
+      </div>
     </>
   );
 }
