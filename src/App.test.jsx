@@ -3,6 +3,16 @@ import App from './App';
 import userEvent from '@testing-library/user-event';
 
 describe('Shopping behavioral list tests', () => {
+  it('should display a shopping list', async () => {
+    render(<App />);
+
+    const initialItem = await screen.findByText(
+      /add items to your shopping list/i
+    );
+
+    expect(initialItem).toBeInTheDocument();
+  });
+
   it('should add an item to the list', async () => {
     render(<App />);
 
@@ -32,15 +42,23 @@ describe('Shopping behavioral list tests', () => {
   it('should edit a list item', async () => {
     render(<App />);
 
+    const initialItem = await screen.findByText(
+      /add items to your shopping list/i
+    );
+
     const button = await screen.findByRole('button', { name: /✏/i });
     userEvent.click(button);
 
     const edit = await screen.findByLabelText('edit');
     userEvent.type(edit, 'ice cream');
 
-    const save = await screen.findByRole('button', {name: /save/i});
+    const save = await screen.findByRole('button', { name: /save/i });
     userEvent.click(save);
 
-    await screen.findByText(/ice cream/i);
+    const newItem = await screen.findByText(/ice cream/i);
+
+    expect(initialItem).not.toBeInTheDocument();
+
+    expect(newItem).toBeInTheDocument();
   });
 });
