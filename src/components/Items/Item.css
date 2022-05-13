@@ -1,0 +1,39 @@
+.item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.item p {
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.editButton {
+    color: rgb(234, 70, 11);
+    background-color: white;
+    border: none;
+    margin: .4rem;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.saveButton {
+    color: rgb(234, 70, 11);
+    background-color: white;
+    border: none;
+    margin: .4rem;
+    font-size: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.deleteButton {
+    color: rgb(234, 70, 11);
+    background-color: white;
+    border: none;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+
