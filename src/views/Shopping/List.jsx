@@ -15,7 +15,7 @@ export default function ShoppingList() {
 
   return (
     <div className={styles.list}>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.listForm} onSubmit={handleSubmit}>
         <input
           type="text"
           name="newItem"

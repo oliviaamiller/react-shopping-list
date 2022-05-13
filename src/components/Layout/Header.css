@@ -1,5 +1,5 @@
 .header{
-    background-color: rgb(234, 70, 11);
+    background-color: rgb(253,218,22);
     display: grid;
     grid: 1fr / .8fr .15fr .15fr;
     align-items: center;
@@ -13,6 +13,7 @@
     padding-left: 2rem;
     letter-spacing: .1rem;
     font-size: 3.8rem;
+    text-shadow: 4px 4px hotpink;
 }
 
 .header p {
@@ -22,7 +23,7 @@
 }
 
 .header button {
-   background-color: rgb(234, 70, 11);
+   background-color: rgb(253,218,22);
    border: black 1.5px solid;
    font-family: sans-serif;
    text-transform: uppercase;
