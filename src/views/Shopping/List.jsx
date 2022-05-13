@@ -23,7 +23,9 @@ export default function ShoppingList() {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-        <button type="submit" className={styles.addButton}>Add Item</button>
+        <button type="submit" className={styles.addButton}>
+          Add Item
+        </button>
       </form>
       <div>
         {items.map((item) => {
