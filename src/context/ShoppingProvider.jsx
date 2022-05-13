@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useEffect, useReducer } from 'react';
 
 const initialListItem = [
   { id: Date.now(), text: 'Add items to your shopping list', bought: false },
@@ -39,7 +39,16 @@ const shoppingReducer = (items, action) => {
 const ShoppingContext = createContext();
 
 export const ShoppingProvider = ({ children }) => {
-  const [items, dispatch] = useReducer(shoppingReducer, initialListItem);
+  const listStorage = JSON.parse(localStorage.getItem('list'));
+
+  const [items, dispatch] = useReducer(
+    shoppingReducer,
+    listStorage || initialListItem
+  );
+
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(items));
+  }, [items]);
 
   const handleAddItem = (text) => {
     dispatch({ type: 'add', payload: { text } });
@@ -59,7 +68,13 @@ export const ShoppingProvider = ({ children }) => {
 
   return (
     <ShoppingContext.Provider
-      value={{ items, handleAddItem, handleEditItem, handleDeleteItem, handleClearList }}
+      value={{
+        items,
+        handleAddItem,
+        handleEditItem,
+        handleDeleteItem,
+        handleClearList,
+      }}
     >
       {children}
     </ShoppingContext.Provider>
